@@ -1,5 +1,17 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import fs from 'fs'
+
+function htmlInputs() {
+  const root = __dirname
+  const inputs = {}
+  for (const f of fs.readdirSync(root)) {
+    if (f.endsWith('.html') && f !== '404.html') {
+      inputs[f.replace(/\.html$/, '')] = resolve(root, f)
+    }
+  }
+  return inputs
+}
 
 export default defineConfig({
   // Needed because this repo is served from a subpath on GitHub Pages
@@ -12,19 +24,9 @@ export default defineConfig({
     sourcemap: false,
     cssMinify: true,
     rollupOptions: {
-      input: {
-        index:       resolve(__dirname, 'index.html'),
-        about:       resolve(__dirname, 'about.html'),
-        business:    resolve(__dirname, 'business-consulting.html'),
-        education:   resolve(__dirname, 'education-consulting.html'),
-        immigration: resolve(__dirname, 'immigration-consulting.html'),
-        startup:     resolve(__dirname, 'startup-guidance.html'),
-        template:    resolve(__dirname, 'page-template.html')
-      },
+      input: htmlInputs(),
       output: {
-        manualChunks: {
-          vendor: ['./src/main.js']   // bundle main.js separately
-        }
+        manualChunks: { vendor: ['./src/main.js'] }
       }
     }
   },
