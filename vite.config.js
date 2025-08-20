@@ -39,11 +39,9 @@ export default defineConfig({
   assetsInclude: ['**/*.mp4', '**/*.jpg', '**/*.png', '**/*.jpeg', '**/*.gif', '**/*.svg']
 
   // Enable experimental features for better performance
-  /*
   experimental: {
     renderBuiltUrl: (filename) => {
       return `/${filename}`
     }
   }
-  */
 })
