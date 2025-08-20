@@ -1,24 +1,48 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+class Navigation {
+  constructor() {
+    this.hamburger = document.getElementById('hamburger')
+    this.navOverlay = document.getElementById('nav-overlay')
+    this.navClose = document.getElementById('nav-close')
+    this.logoBtn = document.getElementById('logo-btn')
+    
+    this.init()
+  }
+  
+  init() {
+    this.hamburger.addEventListener('click', () => this.openMenu())
+    this.navClose.addEventListener('click', () => this.closeMenu())
+    this.logoBtn.addEventListener('click', () => this.goHome())
+    
+    this.navOverlay.addEventListener('click', (e) => {
+      if (e.target === this.navOverlay) {
+        this.closeMenu()
+      }
+    })
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.navOverlay.classList.contains('active')) {
+        this.closeMenu()
+      }
+    })
+  }
+  
+  openMenu() {
+    this.navOverlay.classList.add('active')
+    document.body.style.overflow = 'hidden'
+  }
+  
+  closeMenu() {
+    this.navOverlay.classList.remove('active')
+    document.body.style.overflow = 'auto'
+  }
+  
+  goHome() {
+    window.location.href = '/'
+  }
+}
 
-setupCounter(document.querySelector('#counter'))
+document.addEventListener('DOMContentLoaded', () => {
+  new Navigation()
+})

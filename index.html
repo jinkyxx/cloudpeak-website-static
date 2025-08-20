@@ -4,10 +4,51 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>CloudPeak Group - Strategic Solutions, New Zealand</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <div class="logo-placeholder"></div>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="#" class="nav-link">About Us 关于我们</a></li>
+            <li><a href="#" class="nav-link">New Zealand Business Consulting 新西兰商业咨询</a></li>
+            <li><a href="#" class="nav-link">New Zealand Startup Guidance 新西兰创业指导</a></li>
+            <li><a href="#" class="nav-link">New Zealand Education Consulting 新西兰教育咨询</a></li>
+            <li><a href="#" class="nav-link">New Zealand Immigration Consulting 新西兰移民咨询</a></li>
+            <li><a href="#" class="nav-link">Enterprise-level AI Solutions 企业级AI解决方案</a></li>
+            <li><a href="#" class="nav-link">Our Value 我们的价值观</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <main class="hero">
+        <div class="hero-content">
+          <div class="company-info">
+            <h1 class="company-name">CLOUDPEAK GROUP</h1>
+            <p class="company-tagline">STRATEGIC SOLUTIONS, NEW ZEALAND</p>
+            <p class="company-copyright">© 2025 CloudPeak Group. All Rights Reserved.</p>
+            <p class="site-credit">Site by Claude Code</p>
+          </div>
+        </div>
+      </main>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
