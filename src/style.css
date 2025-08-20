@@ -481,3 +481,68 @@ body.nav-open .hamburger {
     font-size: 1rem;
   }
 }
+
+/* Loading states to prevent FOUC */
+body.page-loading {
+  opacity: 0.9;
+  transition: opacity 0.2s ease-in-out;
+}
+
+body.page-loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Ensure critical elements are visible during load */
+.nav,
+.hero,
+.page-banner {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Progressive enhancement - hide non-critical content until styles load */
+.services-grid,
+.contact-section {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'system-ui-fallback';
+  src: local('system-ui'), local('-apple-system'), local('Segoe UI'), local('Roboto');
+  font-display: swap;
+}
+
+/* Ensure smooth transitions between pages */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Preload hover states for better UX */
+.hamburger:hover,
+.logo-btn:hover,
+.nav-link:hover,
+.service-item:hover {
+  transform: translateZ(0);
+  will-change: transform, background-color, opacity;
+}
+
+/* Optimize image loading */
+.banner-image,
+.hero-video {
+  image-rendering: optimizeQuality;
+  loading: eager;
+}
