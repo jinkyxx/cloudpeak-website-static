@@ -8,13 +8,21 @@ export default defineConfig({
     cssCodeSplit: true,
     manifest: true,
     sourcemap: false,
+    cssMinify: true,
+    rollupOptions: {
+      input: {
+        index:       resolve(__dirname, 'index.html'),
+        about:       resolve(__dirname, 'about.html'),
+        business:    resolve(__dirname, 'business-consulting.html'),
+        education:   resolve(__dirname, 'education-consulting.html'),
+        immigration: resolve(__dirname, 'immigration-consulting.html'),
+        startup:     resolve(__dirname, 'startup-guidance.html'),
+        template:    resolve(__dirname, 'page-template.html')
+      },
       output: {
-        manualChunks: {
-          vendor: ['./src/main.js']
-        }
+        manualChunks: { vendor: ['./src/main.js'] }
       }
-    },
-    cssMinify: true
+    }
   },
 
   server: {
