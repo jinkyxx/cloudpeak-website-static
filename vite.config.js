@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path' // only needed if you keep the multi-page input below
+import { resolve } from 'path'
 
 export default defineConfig({
+  // Needed because this repo is served from a subpath on GitHub Pages
   base: '/cloudpeak-website-static/',
 
   build: {
+    emptyOutDir: true,
     cssCodeSplit: true,
     manifest: true,
     sourcemap: false,
@@ -20,7 +22,9 @@ export default defineConfig({
         template:    resolve(__dirname, 'page-template.html')
       },
       output: {
-        manualChunks: { vendor: ['./src/main.js'] }
+        manualChunks: {
+          vendor: ['./src/main.js']   // bundle main.js separately
+        }
       }
     }
   },
@@ -36,5 +40,12 @@ export default defineConfig({
     devSourcemap: false
   },
 
-  assetsInclude: ['**/*.mp4', '**/*.jpg', '**/*.png', '**/*.jpeg', '**/*.gif', '**/*.svg']
+  assetsInclude: [
+    '**/*.mp4',
+    '**/*.jpg',
+    '**/*.png',
+    '**/*.jpeg',
+    '**/*.gif',
+    '**/*.svg'
+  ]
 })
