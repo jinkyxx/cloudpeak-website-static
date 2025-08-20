@@ -1,0 +1,90 @@
+name: Build & Publish Vite to GitHub Pages (no external actions)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # allow pushing to gh-pages
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      REPO:  ${{ github.repository }}
+      SHA:   ${{ github.sha }}
+      TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      # 1) Clone (no actions/checkout)
+      - name: Clone repository (auth via URL)
+        run: |
+          set -euo pipefail
+          git init repo
+          cd repo
+          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPO}.git"
+          git fetch --depth=1 origin "${SHA}"
+          git checkout --detach "${SHA}"
+
+      # 2) Install Node.js 20 (no actions/setup-node)
+      - name: Install Node.js 20
+        run: |
+          set -e
+          curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+          node -v && npm -v
+
+      # 3) Install deps & build
+      - name: Install dependencies
+        working-directory: repo
+        run: npm ci
+
+      - name: Build
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          npm run build
+
+          echo "=== DIST BEFORE FALLBACK ==="
+          find dist -maxdepth 2 -type f -print | sort || true
+
+          # Copy any root-level .html not emitted by Vite
+          find . -maxdepth 1 -name '*.html' -not -name 'index.html' -not -name '404.html' -exec cp -v {} dist/ \;
+
+          # Deep-link fallback (ok for multi-page)
+          cp -v dist/index.html dist/404.html || true
+
+          echo "=== DIST FINAL ==="
+          find dist -maxdepth 2 -type f -print | sort || true
+
+      # 4) Clean publish to gh-pages
+      - name: Deploy to gh-pages
+        working-directory: repo
+        env:
+          ORIGIN_URL: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        run: |
+          set -euo pipefail
+
+          rm -rf ../gh-pages && mkdir ../gh-pages
+          cp -R dist/* ../gh-pages/
+          cd ../gh-pages
+          touch .nojekyll
+
+          git init
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy ${GITHUB_SHA}"
+
+          # Delete remote branch first (ignore error if missing)
+          git remote add origin "$ORIGIN_URL"
+          git push origin :gh-pages || true
+
+          # Push fresh gh-pages
+          git branch -M gh-pages
+          git push -u origin gh-pages
