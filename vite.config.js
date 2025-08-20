@@ -8,17 +8,6 @@ export default defineConfig({
     cssCodeSplit: true,
     manifest: true,
     sourcemap: false,
-    // (optional) multi-page build – include only if you have these pages
-    rollupOptions: {
-      input: {
-        index:      resolve(__dirname, 'index.html'),
-        about:      resolve(__dirname, 'about.html'),
-        business:   resolve(__dirname, 'business-consulting.html'),
-        education:  resolve(__dirname, 'education-consulting.html'),
-        immigration:resolve(__dirname, 'immigration-consulting.html'),
-        startup:    resolve(__dirname, 'startup-guidance.html'),
-        template:   resolve(__dirname, 'page-template.html')
-      },
       output: {
         manualChunks: {
           vendor: ['./src/main.js']
