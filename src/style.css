@@ -42,8 +42,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  backdrop-filter: blur(10px);
-  background: var(--nav-bg);
+  background: transparent;
 }
 
 .hamburger {
@@ -98,7 +97,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--overlay-bg);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
@@ -108,6 +107,11 @@ body {
 .nav-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+
+body.nav-open .hamburger {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .nav-menu {
@@ -169,14 +173,20 @@ body {
 /* Hero Section */
 .hero {
   min-height: 100vh;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234a5ae5;stop-opacity:1" /><stop offset="100%" style="stop-color:%232563eb;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23bg)"/><polygon points="0,400 300,350 600,450 900,300 1200,350 1200,800 0,800" fill="%23ffffff" fill-opacity="0.1"/><polygon points="0,500 400,400 800,500 1200,400 1200,800 0,800" fill="%23ffffff" fill-opacity="0.05"/></svg>');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
   position: relative;
   overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .hero::before {
@@ -186,7 +196,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(74, 90, 229, 0.8) 0%, rgba(37, 99, 235, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
   z-index: 1;
 }
 
@@ -295,5 +305,179 @@ body {
   
   .hero-content {
     padding: 1rem;
+  }
+}
+
+/* About Us Page Styles */
+.page-banner {
+  height: 40vh;
+  min-height: 300px;
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 0;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  min-height: 60vh;
+}
+
+.content-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+}
+
+.title-btn {
+  background: none;
+  border: 2px solid #333;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.title-btn:hover {
+  background: #333;
+  color: white;
+}
+
+.intro-text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.service-item {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-item h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.service-item p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: justify;
+}
+
+.contact-section {
+  text-align: center;
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments for About page */
+@media (max-width: 768px) {
+  .page-banner {
+    height: 30vh;
+    min-height: 250px;
+  }
+  
+  .page-content {
+    padding: 2rem 1rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .service-item {
+    padding: 2rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .service-item p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-banner {
+    height: 25vh;
+    min-height: 200px;
+  }
+  
+  .page-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .service-item {
+    padding: 1.5rem;
+  }
+  
+  .title-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 }

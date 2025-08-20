@@ -30,16 +30,18 @@ class Navigation {
   
   openMenu() {
     this.navOverlay.classList.add('active')
+    document.body.classList.add('nav-open')
     document.body.style.overflow = 'hidden'
   }
   
   closeMenu() {
     this.navOverlay.classList.remove('active')
+    document.body.classList.remove('nav-open')
     document.body.style.overflow = 'auto'
   }
   
   goHome() {
-    window.location.href = '/'
+    window.location.href = '/index.html'
   }
 }
 
