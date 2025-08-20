@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - CloudPeak Group</title>
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/src/style.css" as="style">
-    <link rel="preload" href="/src/main.js" as="script">
-    
-    <!-- Inline critical CSS to prevent FOUC -->
+    <!-- Comprehensive FOUC prevention -->
     <style>
       /* Critical CSS for immediate rendering */
       * {
@@ -104,7 +100,7 @@
       }
     </style>
   </head>
-  <body class="page-loading">
+  <body style="visibility: hidden;">
     <div id="app">
       <!-- Navigation -->
       <nav class="nav">

@@ -86,33 +86,33 @@ class Navigation {
   }
 }
 
-// Prevent FOUC by ensuring styles are loaded
-function ensureStylesLoaded() {
-  return new Promise((resolve) => {
-    if (document.styleSheets.length > 0) {
-      resolve()
-    } else {
-      const checkStyles = () => {
-        if (document.styleSheets.length > 0) {
-          resolve()
-        } else {
-          requestAnimationFrame(checkStyles)
-        }
-      }
-      checkStyles()
-    }
-  })
+// Simple and reliable FOUC prevention
+function showPageWhenReady() {
+  // Show page immediately but with smooth transition
+  document.body.style.visibility = 'visible'
+  document.body.style.opacity = '0'
+  document.body.style.transition = 'opacity 0.2s ease-in-out'
+  
+  // Quick fade in
+  setTimeout(() => {
+    document.body.style.opacity = '1'
+  }, 10)
 }
 
-// Initialize when DOM and styles are ready
-document.addEventListener('DOMContentLoaded', async () => {
-  // Ensure styles are loaded before showing content
-  await ensureStylesLoaded()
-  
-  // Remove any loading classes
-  document.body.classList.remove('page-loading')
-  document.body.classList.add('page-loaded')
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+  // Show page
+  showPageWhenReady()
   
   // Initialize navigation
   new Navigation()
 })
+
+// Fallback in case DOMContentLoaded already fired
+if (document.readyState === 'loading') {
+  // DOMContentLoaded will fire
+} else {
+  // DOM is already ready
+  showPageWhenReady()
+  new Navigation()
+}
