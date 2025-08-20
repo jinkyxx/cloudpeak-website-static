@@ -1,51 +1,80 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Build & Publish Vite to GitHub Pages (no external actions)
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [ main ]
   workflow_dispatch:
 
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write   # needed to push to gh-pages
 
-# Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: gh-pages
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      REPO: ${{ github.server_url }}/${{ github.repository }}
+      SHA:  ${{ github.sha }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: 'npm'
+      # 1) Clone without actions/checkout
+      - name: Clone repository
+        run: |
+          set -e
+          git init repo
+          cd repo
+          git remote add origin "$REPO"
+          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' '${{ secrets.GITHUB_TOKEN }}' | base64)" \
+              fetch --depth=1 origin "$SHA"
+          git checkout FETCH_HEAD
+
+      # 2) Ensure Node 20+ without actions/setup-node
+      - name: Install Node.js 20 LTS
+        run: |
+          set -e
+          if command -v node >/dev/null 2>&1; then
+            node -v
+          else
+            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+          fi
+          node -v
+          npm -v
+
+      # 3) Install & build
       - name: Install dependencies
+        working-directory: repo
         run: npm ci
+
       - name: Build
-        run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload dist folder
-          path: './dist'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        working-directory: repo
+        run: |
+          npm run build
+          # SPA deep-link fix
+          cp dist/index.html dist/404.html || true
+
+      # 4) Publish to gh-pages (no deploy-pages action)
+      - name: Deploy to gh-pages branch
+        working-directory: repo
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          rm -rf ../gh-pages
+          mkdir -p ../gh-pages
+          cp -R dist/* ../gh-pages/
+
+          cd ../gh-pages
+          touch .nojekyll
+          # If you use a custom domain, replace the next line with:  echo "your.domain" > CNAME
+          # echo "cloudpeak-website-static" > CNAME || true
+
+          git init
+          git checkout -b gh-pages
+          git add -A
+          git commit -m "Deploy ${SHA}"
+          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' '${{ secrets.GITHUB_TOKEN }}' | base64)" \
+              push --force "$REPO" gh-pages
