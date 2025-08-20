@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  base: '/cloudpeak-website-static/',
+  
   // Optimize build for better loading performance
   build: {
     // Enable CSS code splitting for better loading
