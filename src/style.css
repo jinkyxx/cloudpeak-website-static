@@ -351,21 +351,14 @@ body.nav-open .hamburger {
   margin-bottom: 2rem;
 }
 
-.title-btn {
-  background: none;
-  border: 2px solid #333;
+.title-box {
+  display: inline-block;
+  border: 2px solid #5c5b5b;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 500;
-  color: #333;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.title-btn:hover {
-  background: #333;
-  color: white;
+  background: none;
 }
 
 .intro-text {
@@ -373,7 +366,7 @@ body.nav-open .hamburger {
   margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #444;
+  color: #5c5b5b;
   text-align: justify;
 }
 
@@ -400,7 +393,7 @@ body.nav-open .hamburger {
 .service-item h3 {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #333;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -412,12 +405,19 @@ body.nav-open .hamburger {
   text-align: justify;
 }
 
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  margin: 4rem 0 3rem 0;
+}
+
 .contact-section {
   text-align: center;
-  background: white;
-  padding: 3rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  padding: 2rem 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .contact-section h2 {
@@ -430,6 +430,8 @@ body.nav-open .hamburger {
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Responsive adjustments for About page */
@@ -476,7 +478,7 @@ body.nav-open .hamburger {
     padding: 1.5rem;
   }
   
-  .title-btn {
+  .title-box {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
   }
