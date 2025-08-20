@@ -5,8 +5,106 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - CloudPeak Group</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    
+    <!-- Inline critical CSS to prevent FOUC -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-placeholder {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 4px;
+        transform: rotate(45deg);
+      }
+      
+      /* Page banner critical styles */
+      .page-banner {
+        height: 40vh;
+        min-height: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0;
+      }
+      
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        min-height: 60vh;
+      }
+    </style>
   </head>
-  <body>
+  <body class="page-loading">
     <div id="app">
       <!-- Navigation -->
       <nav class="nav">
