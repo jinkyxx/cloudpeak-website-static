@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Zealand Business Consulting - CloudPeak Group</title>
+    <title>New Zealand Immigration Consulting - CloudPeak Group</title>
     
     <!-- Comprehensive FOUC prevention -->
     <style>
@@ -98,6 +98,87 @@
         background: #f8f9fa;
         min-height: 60vh;
       }
+      
+      /* Process section styles */
+      .process-section {
+        margin: 4rem 0;
+        text-align: center;
+      }
+      
+      .process-section h2 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        color: #333;
+        font-weight: 600;
+      }
+      
+      .process-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      .process-step {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .step-number {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+      }
+      
+      .process-step h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.75rem;
+      }
+      
+      .process-step p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+      }
+      
+      /* Mobile responsive design */
+      @media (max-width: 768px) {
+        .process-grid {
+          flex-direction: column;
+          align-items: center;
+          gap: 3rem;
+        }
+        
+        .process-step {
+          max-width: 300px;
+        }
+        
+        .step-number {
+          width: 70px;
+          height: 70px;
+          font-size: 1.75rem;
+        }
+        
+        .process-section h2 {
+          font-size: 1.75rem;
+          margin-bottom: 2rem;
+        }
+      }
     </style>
   </head>
   <body style="visibility: hidden;">
@@ -134,7 +215,7 @@
 
       <!-- Banner Section -->
       <section class="page-banner">
-        <img src="/image1.jpg" alt="New Zealand Business" class="banner-image">
+        <img src="/image1.jpg" alt="New Zealand Immigration" class="banner-image">
         <div class="banner-overlay"></div>
       </section>
 
@@ -143,47 +224,74 @@
         <!-- Page Title -->
         <section class="content-section">
           <div class="section-title">
-            <div class="title-box">新西兰商业咨询｜了解环境，落地企业，赢在起点</div>
+            <div class="title-box">新西兰移民咨询｜移民政策清晰，移居过程安心</div>
           </div>
           
           <div class="intro-text">
-            <p>我们为海外企业提供专业的新西兰市场准入服务，包括公司注册、商业模式优化、政策法规解读、行业趋势分析、本地合作伙伴等。通过我们的咨询与资源整合，客户可以更清晰地判断商业机会，规避风险，加速决策与执行。</p>
+            <p>作为持牌移民顾问团队（Licensed Immigration Advisers），我们为客户提供合法、专业、严谨的新西兰移民服务，无论是技术移民、投资移民、雇主担保还是家庭团聚，我们都能根据客户背景量身定制优化解决方案，并协助准备所有必要的文件与辅导材料，提升申请成功率。</p>
           </div>
           
           <div class="target-audience">
-            <h3>适合人群：</h3>
+            <h3>我们承诺：</h3>
             <ul>
-              <li>正在考虑在新西兰设立分公司或子公司的海外企业</li>
-              <li>有意向进入新西兰市场的创业者与投资者</li>
-              <li>希望寻找本地合作伙伴或者建设自品牌方</li>
+              <li>所有建议遵守新西兰移民（INZ）官方政策</li>
+              <li>拒绝虚假宣传与不实承诺</li>
+              <li>注重长期服务与客户整体利益</li>
             </ul>
           </div>
         </section>
 
         <!-- Services Grid -->
         <section class="services-grid">
-          <!-- Company Registration -->
+          <!-- Skilled Migration -->
           <div class="service-item">
-            <h3>公司注册与设立</h3>
-            <p>提供新西兰公司注册的全流程服务，包括公司类型选择、名称审核、文件准备、银行开户、商标申请的企业快速合规地在新西兰设立。</p>
+            <h3>技术移民</h3>
+            <p>为具备专业技能的申请人提供技术移民评估、申请策略制定、职业评估指导服务，帮助符合条件的申请人成功获得技术移民资格新西兰全家居留权。</p>
           </div>
 
-          <!-- Market Analysis -->
+          <!-- Investment Migration -->
           <div class="service-item">
-            <h3>市场分析与机会评估</h3>
-            <p>深入分析新西兰市场环境、竞争格局、消费者行为和业趋势，为您的商业决策提供准确的数据支撑和战略建议。</p>
+            <h3>投资移民</h3>
+            <p>为高净值客户提供投资移民方案设计，包括投资项目选择、资金来源证明、商业计划制定等，确保投资移民申请的合规性和成功率。</p>
           </div>
 
-          <!-- Legal Compliance -->
+          <!-- Employer Sponsored -->
           <div class="service-item">
-            <h3>法规合规指导</h3>
-            <p>协助企业了解并遵守新西兰的商业法规、税务要求、劳动法规等，确保合规运营，降低企业法律风险。</p>
+            <h3>雇主担保移民</h3>
+            <p>协助申请人寻找合适的新西兰雇主，准备工作签证和雇主担保材料，提供雇主担保移民的全流程指导服务。</p>
           </div>
 
-          <!-- Partnership -->
+          <!-- Family Reunion -->
           <div class="service-item">
-            <h3>本地合作伙伴对接</h3>
-            <p>利用我们的本地网络资源，为您匹配适合的供应商、分销商、投资者或战略合作伙伴，加速业务拓展。</p>
+            <h3>家庭团聚移民</h3>
+            <p>为已获得新西兰居留权或公民身份的申请人提供配偶、子女、父母等亲属的团聚移民服务，让家庭成员在新西兰全家团圆。</p>
+          </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+          <h2>我们的服务流程</h2>
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>初步评估</h3>
+              <p>免费评估移民资格与可行性</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>方案制定</h3>
+              <p>定制个性化移民路径</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>材料准备</h3>
+              <p>协助准备所有申请文件</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>申请跟进</h3>
+              <p>全程跟踪申请进度</p>
+            </div>
           </div>
         </section>
 
@@ -192,8 +300,8 @@
         
         <!-- Contact Section -->
         <section class="contact-section">
-          <h2>开始您的新西兰商业之旅</h2>
-          <p>准备将您的业务拓展到新西兰？我们的专业团队时刻为您提供个性化的商业咨询服务，助您成功落地新西兰市场。</p>
+          <h2>开启您的新西兰移民之路</h2>
+          <p>准备移民新西兰？我们的持牌移民顾问团队将为您提供专业、合法的移民咨询服务，助您成功实现移民梦想。</p>
         </section>
       </main>
     </div>
