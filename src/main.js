@@ -82,7 +82,7 @@ class Navigation {
   }
   
   goHome() {
-    this.navigateWithPreload('/index.html')
+    this.navigateWithPreload('index.html')
   }
 }
 
