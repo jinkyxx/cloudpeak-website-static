@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # allow pushing to gh-pages
+  contents: write
 
 concurrency:
   group: gh-pages
@@ -50,17 +50,17 @@ jobs:
           set -euo pipefail
           npm run build
 
-          echo "=== DIST BEFORE FALLBACK ==="
-          find dist -maxdepth 2 -type f -print | sort || true
-
-          # Copy any root-level .html not emitted by Vite
-          find . -maxdepth 1 -name '*.html' -not -name 'index.html' -not -name '404.html' -exec cp -v {} dist/ \;
-
-          # Deep-link fallback (ok for multi-page)
+          # Create SPA fallback (harmless for multi-page)
           cp -v dist/index.html dist/404.html || true
 
-          echo "=== DIST FINAL ==="
+          echo "=== DIST CONTENTS ==="
           find dist -maxdepth 2 -type f -print | sort || true
+
+          # Sanity check: ensure built HTML no longer references /src/main.js
+          if grep -Rsn "/src/main.js" dist/*.html; then
+            echo "::error ::One or more built HTML files still reference /src/main.js (not processed by Vite)."
+            exit 1
+          fi
 
       # 4) Clean publish to gh-pages
       - name: Deploy to gh-pages
