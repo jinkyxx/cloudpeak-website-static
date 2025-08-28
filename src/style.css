@@ -4,7 +4,7 @@
   --tertiary-text: rgba(255, 255, 255, 0.6);
   --nav-bg: rgba(255, 255, 255, 0.1);
   --nav-hover: rgba(255, 255, 255, 0.2);
-  --overlay-bg: rgba(0, 0, 0, 0.9);
+  --overlay-bg: rgba(0, 0, 0, 0.3);
   
   font-size: 0.9em;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -98,7 +98,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(28, 2, 11, 0.3);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   z-index: 2000;
@@ -156,9 +156,9 @@ body.nav-open .hamburger {
 }
 
 .nav-link {
-  color: var(--primary-text);
+  color: #f7f7f5;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: 300;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -168,7 +168,7 @@ body.nav-open .hamburger {
 }
 
 .nav-link:hover {
-  color: var(--primary-text);
+  color: #333;
   background: var(--nav-hover);
   transform: translateY(-2px);
 }
@@ -302,7 +302,7 @@ body.nav-open .hamburger {
   }
   
   .nav-link {
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 0.6rem;
   }
   
@@ -334,7 +334,7 @@ body.nav-open .hamburger {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(101, 101, 101, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 .page-content {
@@ -424,17 +424,49 @@ body.nav-open .hamburger {
 }
 
 .contact-section h2 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: #333;
   margin-bottom: 1rem;
 }
 
 .contact-section p {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #666;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
+}
+
+.sponsor-images {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-direction: row;
+}
+
+.sponsor-images img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.sponsor-images img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .sponsor-images {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .sponsor-images img {
+    max-width: 250px;
+  }
 }
 
 /* Responsive adjustments for About page */
