@@ -214,7 +214,7 @@ body.nav-open .hamburger {
 }
 
 .company-name {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--primary-text);
   letter-spacing: 2px;
