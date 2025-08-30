@@ -1,15 +1,16 @@
-# CloudPeak Group - Static Website
+# CloudPeak Group - Official Website
 
-A responsive static website for CloudPeak Group, a consulting company providing strategic solutions in New Zealand. Built with Vite and vanilla JavaScript for optimal performance and clean code.
+Responsive static website for CloudPeak Group (云岫国际), providing strategic solutions in New Zealand. Built with Vite and vanilla JavaScript for optimal performance and clean code.
 
 ## 🌟 Features
 
-- **Responsive Design**: Works seamlessly across desktop, tablet, and mobile devices
+- **Responsive Design**: Seamlessly works across desktop, tablet, and mobile devices
 - **Modern Navigation**: Hamburger menu with smooth overlay transitions
 - **Video Background**: Dynamic hero section with video background support
 - **FOUC Prevention**: Comprehensive Flash of Unstyled Content prevention system
-- **Multi-language Support**: English and Chinese content throughout
-- **Performance Optimized**: Fast loading with critical CSS inlining and optimized assets
+- **Chinese Interface**: Fully localized Chinese user interface
+- **Performance Optimized**: Critical CSS inlining and optimized assets for fast loading
+- **Clean URLs**: Professional URL structure without .html extensions
 
 ## Getting Started
 
@@ -42,26 +43,44 @@ npm run dev
 
 ```
 cloudpeak-website-static/
-├── public/                 # Static assets
-│   ├── backgound_video.mp4 # Hero background video
-│   ├── image1.jpg          # About page banner image
-│   └── vite.svg           # Favicon
-├── src/                    # Source files
-│   ├── main.js            # Main JavaScript entry point
-│   ├── style.css          # Global styles
-│   └── counter.js         # Legacy counter component
-├── index.html             # Home page
-├── about.html             # About Us page
-├── page-template.html     # Template for new pages
-├── vite.config.js         # Vite configuration
-├── CLAUDE.md              # Development guidance
-└── package.json           # Project configuration
+├── public/                      # 静态资源
+│   ├── background_video2.mp4    # 首页背景视频
+│   ├── image1.jpg              # 页面横幅图片
+│   ├── wine1.jpg               # 赞助品牌图片1
+│   ├── wine2.jpg               # 赞助品牌图片2
+│   ├── wechat-logo.png         # 微信标志
+│   ├── wechat-qrcode.jpg       # 微信二维码
+│   └── vite.svg               # 网站图标
+├── src/                        # 源文件
+│   ├── main.js                # 主JavaScript入口
+│   ├── style.css              # 全局样式文件
+│   └── counter.js             # 遗留计数器组件
+├── index.html                  # 首页
+├── about.html                  # 关于我们
+├── business-consulting.html    # 商业咨询
+├── startup-guidance.html       # 创业指导
+├── education-consulting.html   # 教育咨询
+├── immigration-consulting.html # 移民咨询
+├── ai-solutions.html          # AI解决方案
+├── our-values.html            # 公司价值观
+├── contact.html               # 联系我们
+├── page-template.html         # 页面模板
+├── vite.config.js             # Vite配置
+├── CLAUDE.md                  # 开发指南
+└── package.json               # 项目配置
 ```
 
 ## 🎯 Available Pages
 
 - **Home (`/`)**: Hero section with video background and company branding
-- **About Us (`/about.html`)**: Company information and services overview
+- **About Us (`/about`)**: Company information and services overview
+- **Business Consulting (`/business-consulting`)**: New Zealand business consulting services
+- **Startup Guidance (`/startup-guidance`)**: Comprehensive startup support services
+- **Education Consulting (`/education-consulting`)**: K12 to PhD education planning services
+- **Immigration Consulting (`/immigration-consulting`)**: Immigration pathway guidance services
+- **AI Solutions (`/ai-solutions`)**: Enterprise-level AI implementation services
+- **Our Values (`/our-values`)**: Company values and philosophy
+- **Contact Us (`/contact`)**: Contact information with email and WeChat
 
 ## 🛠 Development Commands
 
@@ -114,12 +133,12 @@ Always include these critical styles for FOUC prevention:
 
 ## 🎯 Services Offered
 
-CloudPeak Group provides:
-- **Business Consulting** (新西兰商业咨询): Market entry and business setup
-- **Startup Guidance** (新西兰创业指导): Comprehensive startup support
-- **Education Consulting** (新西兰教育咨询): K12 to PhD education planning
-- **Immigration Consulting** (新西兰移民咨询): Immigration pathway guidance
-- **AI Solutions** (企业级AI解决方案): Enterprise-level AI implementations
+CloudPeak Group (云岫国际) provides:
+- **New Zealand Business Consulting**: Market entry and business setup guidance
+- **New Zealand Startup Guidance**: Comprehensive startup support services
+- **New Zealand Education Consulting**: K12 to PhD education planning
+- **New Zealand Immigration Consulting**: Immigration pathway professional guidance
+- **Enterprise-level AI Solutions**: Enterprise AI implementation solutions
 
 ## 🌐 Browser Support
 
@@ -155,10 +174,26 @@ npm run build
 
 The built files will be in the `dist/` directory, ready for deployment to any static hosting service.
 
+### GitHub Pages with Custom Domain
+When using a custom domain, the Vite config is set to `base: '/'` to ensure proper asset loading:
+
+```javascript
+// vite.config.js
+export default defineConfig({
+  base: '/', // Use root path for custom domains
+  // ... other config
+})
+```
+
+### Clean URL Support
+The website supports clean URLs without .html extensions:
+- `cloudpeak.co.nz/about` instead of `cloudpeak.co.nz/about.html`
+- `cloudpeak.co.nz/contact` instead of `cloudpeak.co.nz/contact.html`
+
 ### Recommended Hosting
+- **GitHub Pages** (with custom domain support)
 - Netlify
 - Vercel
-- GitHub Pages
 - AWS S3 + CloudFront
 
 ## 🤝 Contributing

@@ -13,7 +13,7 @@ function htmlInputs() {
 }
 
 export default defineConfig({
-  base: '/cloudpeak-website-static/',
+  base: '/',
 
   build: {
     emptyOutDir: true,
