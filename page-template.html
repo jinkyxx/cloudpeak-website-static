@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/temp-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAGE_TITLE - CloudPeak Group</title>
+    
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering - ALWAYS INCLUDE */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-placeholder {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 4px;
+        transform: rotate(45deg);
+      }
+      
+      /* Navigation overlay critical styles */
+      .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* PAGE-SPECIFIC CRITICAL STYLES GO HERE */
+      /* For home page: include .hero, .hero-video, .hero-content styles */
+      /* For other pages: include .page-banner, .page-content styles */
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-DfuzppRx.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-D_q3VLHg.css">
+  </head>
+  <body style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <div class="logo-placeholder"></div>
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/about" class="nav-link">关于我们</a></li>
+            <li><a href="/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="#" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="#" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="#" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="#" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PAGE CONTENT GOES HERE -->
+      
+    </div>
