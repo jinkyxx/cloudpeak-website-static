@@ -50,7 +50,7 @@ cloudpeak-website-static/
 │   ├── wine2.jpg               # 赞助品牌图片2
 │   ├── wechat-logo.png         # 微信标志
 │   ├── wechat-qrcode.jpg       # 微信二维码
-│   └── vite.svg               # 网站图标
+│   └── temp-icon.png               # 网站图标
 ├── src/                        # 源文件
 │   ├── main.js                # 主JavaScript入口
 │   ├── style.css              # 全局样式文件
