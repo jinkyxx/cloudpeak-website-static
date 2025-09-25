@@ -5,13 +5,20 @@
   --nav-bg: rgba(255, 255, 255, 0.1);
   --nav-hover: rgba(255, 255, 255, 0.2);
   --overlay-bg: rgba(0, 0, 0, 0.3);
-  
+
   font-size: 0.9em;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure mobile viewport fits exactly */
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 * {
@@ -22,20 +29,23 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   overflow-x: hidden;
+  overflow-y: hidden; /* Prevent vertical scrolling on mobile */
 }
 
 #app {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   width: 100%;
 }
 
 /* Navigation */
 .nav {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top, 0); /* Account for notch on mobile */
   left: 0;
   right: 0;
   z-index: 1000;
@@ -175,7 +185,8 @@ body.nav-open .hamburger {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -208,6 +219,7 @@ body.nav-open .hamburger {
   z-index: 2;
   width: 100%;
   padding: 2rem;
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom)); /* Account for safe area on mobile */
 }
 
 .company-info {
@@ -249,6 +261,7 @@ body.nav-open .hamburger {
 @media (max-width: 768px) {
   .nav {
     padding: 1rem 1.5rem;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0));
   }
   
   .nav-close {
@@ -267,6 +280,9 @@ body.nav-open .hamburger {
   
   .hero-content {
     padding: 1.5rem;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0));
+    padding-left: calc(1.5rem + env(safe-area-inset-left, 0));
+    padding-right: calc(1.5rem + env(safe-area-inset-right, 0));
   }
   
   .company-name {
@@ -281,6 +297,9 @@ body.nav-open .hamburger {
 @media (max-width: 480px) {
   .nav {
     padding: 0.8rem 1rem;
+    padding-top: calc(0.8rem + env(safe-area-inset-top, 0));
+    padding-left: calc(1rem + env(safe-area-inset-left, 0));
+    padding-right: calc(1rem + env(safe-area-inset-right, 0));
   }
   
   .nav-close {
@@ -308,6 +327,9 @@ body.nav-open .hamburger {
   
   .hero-content {
     padding: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+    padding-left: calc(1rem + env(safe-area-inset-left, 0));
+    padding-right: calc(1rem + env(safe-area-inset-right, 0));
   }
 }
 
@@ -676,9 +698,32 @@ body.nav-open .hamburger {
   font-display: swap;
 }
 
-/* Ensure smooth transitions between pages */
-html {
-  scroll-behavior: smooth;
+/* Mobile-specific optimizations for exact viewport fit */
+@media screen and (max-width: 768px) {
+  html, body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 /* Preload hover states for better UX */
