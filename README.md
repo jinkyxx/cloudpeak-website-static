@@ -1,6 +1,6 @@
 # CloudPeak Group - Official Website
 
-Responsive static website for CloudPeak Group (云岫国际), providing strategic solutions in New Zealand. Built with Vite and vanilla JavaScript for optimal performance and clean code.
+Responsive static website for CloudPeak Group, providing strategic solutions in New Zealand. Built with Vite and vanilla JavaScript for optimal performance and clean code.
 
 ## 🌟 Features
 
@@ -43,31 +43,32 @@ npm run dev
 
 ```
 cloudpeak-website-static/
-├── public/                      # 静态资源
-│   ├── background_video2.mp4    # 首页背景视频
-│   ├── image1.jpg              # 页面横幅图片
-│   ├── wine1.jpg               # 赞助品牌图片1
-│   ├── wine2.jpg               # 赞助品牌图片2
-│   ├── wechat-logo.png         # 微信标志
-│   ├── wechat-qrcode.jpg       # 微信二维码
-│   └── temp-icon.png               # 网站图标
-├── src/                        # 源文件
-│   ├── main.js                # 主JavaScript入口
-│   ├── style.css              # 全局样式文件
-│   └── counter.js             # 遗留计数器组件
-├── index.html                  # 首页
-├── about.html                  # 关于我们
-├── business-consulting.html    # 商业咨询
-├── startup-guidance.html       # 创业指导
-├── education-consulting.html   # 教育咨询
-├── immigration-consulting.html # 移民咨询
-├── ai-solutions.html          # AI解决方案
-├── our-values.html            # 公司价值观
-├── contact.html               # 联系我们
-├── page-template.html         # 页面模板
-├── vite.config.js             # Vite配置
-├── CLAUDE.md                  # 开发指南
-└── package.json               # 项目配置
+├── public/                      # Static assets
+│   ├── background_video2.mp4    # Home page background video
+│   ├── image1.jpg              # Page banner image
+│   ├── JW_group_logo.jpg       # JW Group sponsor logo
+│   ├── wine1.jpg               # Sponsor brand image 1
+│   ├── wine2.jpg               # Sponsor brand image 2
+│   ├── wechat-logo.png         # WeChat logo
+│   ├── wechat-qrcode.jpg       # WeChat QR code
+│   └── temp-icon.png               # Website icon
+├── src/                        # Source files
+│   ├── main.js                # Main JavaScript entry point
+│   ├── style.css              # Global stylesheet
+│   └── counter.js             # Legacy counter component
+├── index.html                  # Home page
+├── about.html                  # About us page
+├── business-consulting.html    # Business consulting page
+├── startup-guidance.html       # Startup guidance page
+├── education-consulting.html   # Education consulting page
+├── immigration-consulting.html # Immigration consulting page
+├── ai-solutions.html          # AI solutions page
+├── our-values.html            # Company values page
+├── contact.html               # Contact us page
+├── page-template.html         # Page template
+├── vite.config.js             # Vite configuration
+├── CLAUDE.md                  # Development guide
+└── package.json               # Project configuration
 ```
 
 ## 🎯 Available Pages
@@ -133,7 +134,7 @@ Always include these critical styles for FOUC prevention:
 
 ## 🎯 Services Offered
 
-CloudPeak Group (云岫国际) provides:
+CloudPeak Group provides:
 - **New Zealand Business Consulting**: Market entry and business setup guidance
 - **New Zealand Startup Guidance**: Comprehensive startup support services
 - **New Zealand Education Consulting**: K12 to PhD education planning
