@@ -218,27 +218,30 @@ body.nav-open .hamburger {
 }
 
 .company-name {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
   font-weight: 700;
-  color: var(--primary-text);
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.98);
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
 }
 
 .company-tagline {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  font-weight: 300;
-  color: var(--secondary-text);
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.8px;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .company-copyright {
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  color: var(--tertiary-text);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 300;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .site-credit {
@@ -254,35 +257,40 @@ body.nav-open .hamburger {
     padding: 1rem 1.5rem;
     padding-top: calc(1rem + env(safe-area-inset-top, 0));
   }
-  
+
   .nav-close {
     top: 1rem;
     left: 1.5rem;
   }
-  
+
   .nav-list {
     padding: 0 1rem;
   }
-  
+
   .nav-link {
     font-size: 1.1rem;
     padding: 0.8rem;
   }
-  
-  .hero-content {
-    padding: 1.5rem;
-    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0));
-    padding-left: calc(1.5rem + env(safe-area-inset-left, 0));
-    padding-right: calc(1.5rem + env(safe-area-inset-right, 0));
+
+  /* Force fixed content positioning for mobile visibility */
+  body.homepage .hero {
+    align-items: flex-start; /* Start from top to have more control */
+    justify-content: center;
   }
-  
-  .company-name {
-    letter-spacing: 1px;
+
+  body.homepage .hero-content {
+    position: fixed;
+    bottom: 25vh; /* Fixed position from bottom */
+    left: 2rem; /* Left corner positioning */
+    transform: none; /* Remove centering transform */
+    width: auto;
+    max-width: calc(100% - 4rem);
+    text-align: left; /* Left align text */
+    z-index: 10;
+    padding: 0; /* Remove padding */
   }
-  
-  .company-tagline {
-    letter-spacing: 0.5px;
-  }
+
+  /* Typography is handled by fixed positioning styles above */
 }
 
 @media (max-width: 480px) {
@@ -292,35 +300,50 @@ body.nav-open .hamburger {
     padding-left: calc(1rem + env(safe-area-inset-left, 0));
     padding-right: calc(1rem + env(safe-area-inset-right, 0));
   }
-  
+
   .nav-close {
     top: 0.8rem;
     left: 1rem;
   }
-  
+
   .hamburger-line {
     width: 20px;
   }
-  
+
   .logo-placeholder {
     width: 32px;
     height: 32px;
   }
-  
+
   .nav-list {
     padding: 0 0.5rem;
   }
-  
+
   .nav-link {
     font-size: 1.1rem;
     padding: 0.6rem;
   }
-  
-  .hero-content {
-    padding: 1rem;
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
-    padding-left: calc(1rem + env(safe-area-inset-left, 0));
-    padding-right: calc(1rem + env(safe-area-inset-right, 0));
+
+  /* Smaller mobile screens - tighter fixed positioning */
+  body.homepage .hero-content {
+    bottom: 20vh; /* Higher up for smaller screens */
+    left: 1rem; /* Closer to left edge on small screens */
+    max-width: calc(100% - 2rem);
+  }
+
+  .company-name {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    margin-bottom: 0.3rem;
+  }
+
+  .company-tagline {
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .company-copyright {
+    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+    margin-bottom: 0.3rem;
   }
 }
 
@@ -726,6 +749,16 @@ body.homepage #app {
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+
+  /* Ensure content is always visible */
+  body.homepage .hero-content {
+    position: fixed !important;
+    bottom: max(15vh, 120px) !important; /* Minimum 120px from bottom */
+    left: 2rem !important; /* Left corner positioning */
+    transform: none !important; /* Remove centering */
+    width: auto !important;
+    max-width: calc(100vw - 4rem) !important;
   }
 }
 

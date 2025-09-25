@@ -122,29 +122,61 @@
         padding: 2rem;
         padding-bottom: calc(2rem + env(safe-area-inset-bottom)); /* Account for safe area on mobile */
       }
+
+      /* Mobile-specific fixed positioning for guaranteed visibility */
+      @media (max-width: 768px) {
+        body.homepage .hero {
+          align-items: flex-start !important;
+          justify-content: center !important;
+        }
+
+        body.homepage .hero-content {
+          position: fixed !important;
+          bottom: 25vh !important;
+          left: 2rem !important; /* Left corner positioning */
+          transform: none !important; /* Remove centering */
+          width: auto !important;
+          max-width: calc(100% - 4rem) !important;
+          text-align: left !important; /* Left align text */
+          z-index: 10 !important;
+          padding: 0 !important; /* Remove padding */
+        }
+      }
+
+      @media (max-width: 480px) {
+        body.homepage .hero-content {
+          bottom: max(15vh, 120px) !important;
+          left: 1rem !important; /* Closer to left edge on small screens */
+          width: auto !important;
+          max-width: calc(100% - 2rem) !important;
+        }
+      }
       
       .company-name {
-        font-size: clamp(2rem, 5vw, 4rem);
+        font-size: clamp(1.5rem, 5vw, 3.5rem);
         font-weight: 700;
-        color: rgba(255, 255, 255, 0.95);
-        letter-spacing: 2px;
-        margin-bottom: 0.5rem;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        color: rgba(255, 255, 255, 0.98);
+        letter-spacing: 1px;
+        margin-bottom: 0.4rem;
+        text-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
       }
       
       .company-tagline {
-        font-size: clamp(1rem, 2.5vw, 1.5rem);
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.8);
-        letter-spacing: 1px;
-        margin-bottom: 1rem;
+        font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.8px;
+        margin-bottom: 0.8rem;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       }
       
       .company-copyright {
-        font-size: clamp(0.8rem, 1.5vw, 1rem);
-        color: rgba(255, 255, 255, 0.6);
+        font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+        color: rgba(255, 255, 255, 0.75);
         font-weight: 300;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
       }
     </style>
   </head>
