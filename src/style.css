@@ -14,12 +14,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure mobile viewport fits exactly */
-html {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
 
 * {
   margin: 0;
@@ -29,16 +23,13 @@ html {
 
 body {
   margin: 0;
-  height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for mobile */
+  min-height: 100vh;
   overflow-x: hidden;
-  overflow-y: hidden; /* Prevent vertical scrolling on mobile */
 }
 
 #app {
   position: relative;
-  height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for mobile */
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -698,16 +689,28 @@ body.nav-open .hamburger {
   font-display: swap;
 }
 
-/* Mobile-specific optimizations for exact viewport fit */
+/* Homepage-specific mobile optimizations for exact viewport fit */
+body.homepage {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: hidden;
+}
+
+body.homepage #app {
+  height: 100vh;
+  height: 100dvh;
+}
+
 @media screen and (max-width: 768px) {
-  html, body {
+  /* Only apply fixed positioning to homepage */
+  body.homepage {
     position: fixed;
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
 
-  #app {
+  body.homepage #app {
     position: absolute;
     top: 0;
     left: 0;
@@ -716,7 +719,7 @@ body.nav-open .hamburger {
     overflow: hidden;
   }
 
-  .hero {
+  body.homepage .hero {
     position: absolute;
     top: 0;
     left: 0;
