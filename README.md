@@ -57,15 +57,17 @@ cloudpeak-website-static/
 │   ├── style.css              # Global stylesheet
 │   └── counter.js             # Legacy counter component
 ├── index.html                  # Home page
-├── about.html                  # About us page
-├── business-consulting.html    # Business consulting page
-├── startup-guidance.html       # Startup guidance page
-├── education-consulting.html   # Education consulting page
-├── immigration-consulting.html # Immigration consulting page
-├── ai-solutions.html          # AI solutions page
-├── our-values.html            # Company values page
-├── contact.html               # Contact us page
-├── page-template.html         # Page template
+├── pages/                      # All other pages
+│   ├── about.html              # About us page
+│   ├── business-consulting.html # Business consulting page
+│   ├── startup-guidance.html   # Startup guidance page
+│   ├── education-consulting.html # Education consulting page
+│   ├── immigration-consulting.html # Immigration consulting page
+│   ├── ai-solutions.html      # AI solutions page
+│   ├── our-values.html        # Company values page
+│   └── contact.html           # Contact us page
+├── templates/                  # Templates and reusable components
+│   └── page-template.html     # Page template
 ├── vite.config.js             # Vite configuration
 ├── CLAUDE.md                  # Development guide
 └── package.json               # Project configuration
@@ -74,14 +76,14 @@ cloudpeak-website-static/
 ## 🎯 Available Pages
 
 - **Home (`/`)**: Hero section with video background and company branding
-- **About Us (`/about`)**: Company information and services overview
-- **Business Consulting (`/business-consulting`)**: New Zealand business consulting services
-- **Startup Guidance (`/startup-guidance`)**: Comprehensive startup support services
-- **Education Consulting (`/education-consulting`)**: K12 to PhD education planning services
-- **Immigration Consulting (`/immigration-consulting`)**: Immigration pathway guidance services
-- **AI Solutions (`/ai-solutions`)**: Enterprise-level AI implementation services
-- **Our Values (`/our-values`)**: Company values and philosophy
-- **Contact Us (`/contact`)**: Contact information with email and WeChat
+- **About Us (`/pages/about`)**: Company information and services overview
+- **Business Consulting (`/pages/business-consulting`)**: New Zealand business consulting services
+- **Startup Guidance (`/pages/startup-guidance`)**: Comprehensive startup support services
+- **Education Consulting (`/pages/education-consulting`)**: K12 to PhD education planning services
+- **Immigration Consulting (`/pages/immigration-consulting`)**: Immigration pathway guidance services
+- **AI Solutions (`/pages/ai-solutions`)**: Enterprise-level AI implementation services
+- **Our Values (`/pages/our-values`)**: Company values and philosophy
+- **Contact Us (`/pages/contact`)**: Contact information with email and WeChat
 
 ## 🛠 Development Commands
 

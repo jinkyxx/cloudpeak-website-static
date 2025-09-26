@@ -627,7 +627,7 @@ body.nav-open .hamburger {
 .target-audience {
   max-width: 800px;
   margin: 3rem auto;
-  text-align: left;
+  text-align: center; /* Center the entire section */
 }
 
 .target-audience h3 {
@@ -640,6 +640,8 @@ body.nav-open .hamburger {
 .target-audience ul {
   list-style: none;
   padding: 0;
+  display: inline-block; /* Make ul inline-block to center it */
+  text-align: left; /* Reset text alignment for list items */
 }
 
 .target-audience li {
@@ -647,8 +649,9 @@ body.nav-open .hamburger {
   line-height: 1.7;
   color: #555;
   margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  padding-left: 1.5rem; /* Space for bullet point */
   position: relative;
+  text-align: left; /* Ensure text is left-aligned within each item */
 }
 
 .target-audience li::before {
