@@ -218,7 +218,7 @@ body.nav-open .hamburger {
 }
 
 .company-name {
-  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.8rem); /* Smaller max size for full screen */
   font-weight: 700;
   color: rgba(255, 255, 255, 0.98);
   letter-spacing: 1px;
@@ -228,7 +228,7 @@ body.nav-open .hamburger {
 }
 
 .company-tagline {
-  font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+  font-size: clamp(0.95rem, 2.5vw, 1rem); /* Smaller max size for full screen */
   font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.8px;
@@ -237,7 +237,7 @@ body.nav-open .hamburger {
 }
 
 .company-copyright {
-  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  font-size: clamp(0.8rem, 1.8vw, 0.8rem); /* Smaller max size for full screen */
   color: rgba(255, 255, 255, 0.75);
   font-weight: 300;
   margin-bottom: 0.3rem;
@@ -280,7 +280,7 @@ body.nav-open .hamburger {
 
   body.homepage .hero-content {
     position: fixed;
-    bottom: 15vh; /* Lower position from bottom */
+    bottom: 10vh; /* Lower position from bottom */
     left: 2rem; /* Left corner positioning */
     transform: none; /* Remove centering transform */
     width: auto;
@@ -326,7 +326,7 @@ body.nav-open .hamburger {
 
   /* Smaller mobile screens - tighter fixed positioning */
   body.homepage .hero-content {
-    bottom: 12vh; /* Lower for smaller screens */
+    bottom: 6vh; /* Even lower for smaller screens */
     left: 1rem; /* Closer to left edge on small screens */
     max-width: calc(100% - 2rem);
   }
@@ -754,7 +754,7 @@ body.homepage #app {
   /* Ensure content is always visible */
   body.homepage .hero-content {
     position: fixed !important;
-    bottom: max(8vh, 80px) !important; /* Lower minimum position */
+    bottom: max(6vh, 60px) !important; /* Even lower minimum position */
     left: 2rem !important; /* Left corner positioning */
     transform: none !important; /* Remove centering */
     width: auto !important;

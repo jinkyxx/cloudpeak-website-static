@@ -132,7 +132,7 @@
 
         body.homepage .hero-content {
           position: fixed !important;
-          bottom: 15vh !important; /* Lower position */
+          bottom: 12vh !important; /* Lower position for mobile */
           left: 2rem !important; /* Left corner positioning */
           transform: none !important; /* Remove centering */
           width: auto !important;
@@ -145,7 +145,7 @@
 
       @media (max-width: 480px) {
         body.homepage .hero-content {
-          bottom: max(8vh, 80px) !important; /* Lower minimum position */
+          bottom: max(6vh, 60px) !important; /* Even lower minimum position */
           left: 1rem !important; /* Closer to left edge on small screens */
           width: auto !important;
           max-width: calc(100% - 2rem) !important;
