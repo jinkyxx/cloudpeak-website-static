@@ -280,7 +280,7 @@ body.nav-open .hamburger {
 
   body.homepage .hero-content {
     position: fixed;
-    bottom: 10vh; /* Lower position from bottom */
+    bottom: 8vh; /* Even lower position from bottom */
     left: 2rem; /* Left corner positioning */
     transform: none; /* Remove centering transform */
     width: auto;
@@ -326,7 +326,7 @@ body.nav-open .hamburger {
 
   /* Smaller mobile screens - tighter fixed positioning */
   body.homepage .hero-content {
-    bottom: 6vh; /* Even lower for smaller screens */
+    bottom: 4vh; /* Much lower for smaller screens */
     left: 1rem; /* Closer to left edge on small screens */
     max-width: calc(100% - 2rem);
   }
@@ -754,7 +754,7 @@ body.homepage #app {
   /* Ensure content is always visible */
   body.homepage .hero-content {
     position: fixed !important;
-    bottom: max(6vh, 60px) !important; /* Even lower minimum position */
+    bottom: max(4vh, 40px) !important; /* Much lower minimum position */
     left: 2rem !important; /* Left corner positioning */
     transform: none !important; /* Remove centering */
     width: auto !important;
