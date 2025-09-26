@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudPeak Group - Loading...</title>
+    <script>
+        // GitHub Pages SPA router for clean URLs
+        (function() {
+            var path = window.location.pathname;
+            var search = window.location.search;
+
+            // Define page mappings
+            var pageMap = {
+                '/pages/about': '/pages/about.html',
+                '/pages/business-consulting': '/pages/business-consulting.html',
+                '/pages/startup-guidance': '/pages/startup-guidance.html',
+                '/pages/education-consulting': '/pages/education-consulting.html',
+                '/pages/immigration-consulting': '/pages/immigration-consulting.html',
+                '/pages/ai-solutions': '/pages/ai-solutions.html',
+                '/pages/our-values': '/pages/our-values.html',
+                '/pages/contact': '/pages/contact.html'
+            };
+
+            // Check if the path needs redirection
+            if (pageMap[path]) {
+                // Redirect to the actual HTML file
+                window.location.replace(pageMap[path] + search);
+            } else {
+                // For unknown paths, redirect to home
+                window.location.replace('/' + search);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div style="text-align: center; padding: 50px; font-family: system-ui, sans-serif;">
+        <h1>CloudPeak Group</h1>
+        <p>Loading page...</p>
+        <p><a href="/">Return to Home</a></p>
+    </div>
+</body>
+</html>

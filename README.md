@@ -177,21 +177,23 @@ npm run build
 
 The built files will be in the `dist/` directory, ready for deployment to any static hosting service.
 
-### GitHub Pages with Custom Domain
-When using a custom domain, the Vite config is set to `base: '/'` to ensure proper asset loading:
+### GitHub Pages Deployment
 
-```javascript
-// vite.config.js
-export default defineConfig({
-  base: '/', // Use root path for custom domains
-  // ... other config
-})
-```
+The site is configured for GitHub Pages with clean URL support:
+
+1. **Build the site**: `npm run build`
+2. **Deploy the `dist/` folder** to your GitHub Pages branch
+3. **Clean URLs work automatically** via custom 404.html routing
+
+**Files for GitHub Pages:**
+- `404.html` - Handles routing for clean URLs
+- `.nojekyll` - Prevents Jekyll processing
 
 ### Clean URL Support
 The website supports clean URLs without .html extensions:
-- `cloudpeak.co.nz/about` instead of `cloudpeak.co.nz/about.html`
-- `cloudpeak.co.nz/contact` instead of `cloudpeak.co.nz/contact.html`
+- `/pages/about` → redirects to `/pages/about.html`
+- `/pages/contact` → redirects to `/pages/contact.html`
+- All navigation uses clean URLs for better UX
 
 ### Recommended Hosting
 - **GitHub Pages** (with custom domain support)
