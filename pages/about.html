@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/temp-icon.png" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - CloudPeak Group</title>
     <!-- Comprehensive FOUC prevention -->
@@ -65,12 +65,16 @@
         padding: 0.5rem;
       }
       
-      .logo-placeholder {
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 4px;
-        transform: rotate(45deg);
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 80px;
+        }
       }
       
       /* Page banner critical styles */
@@ -104,7 +108,7 @@
       <!-- Navigation -->
       <nav class="nav">
         <button class="logo-btn" id="logo-btn" aria-label="Go to home">
-          <div class="logo-placeholder"></div>
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
         </button>
         
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -186,7 +190,6 @@
           <h2>赞助品牌</h2>
           <div class="sponsor-images">
             <img src="/wine2.jpg" alt="赞助品牌 2" />
-            <img src="/wine1.jpg" alt="赞助品牌 1" />
             <img src="/JW_group_logo.jpg" alt="JW Group New Zealand" />
           </div>
         </section>
