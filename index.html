@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>CloudPeak Group</title>
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      body.homepage {
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
+        overflow-y: hidden; /* Prevent vertical scrolling on mobile */
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      body.homepage #app {
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: env(safe-area-inset-top, 0); /* Account for notch on mobile */
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 100px;
+        }
+      }
+      
+      /* Hero critical styles */
+      .hero {
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+      
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+        z-index: 1;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 2rem;
+        padding-bottom: calc(2rem + env(safe-area-inset-bottom)); /* Account for safe area on mobile */
+      }
+
+      /* Mobile-specific fixed positioning for guaranteed visibility */
+      @media (max-width: 768px) {
+        body.homepage .hero {
+          align-items: flex-start !important;
+          justify-content: center !important;
+        }
+
+        body.homepage .hero-content {
+          position: fixed !important;
+          bottom: 4vh !important; /* Lower position for mobile */
+          left: 2rem !important; /* Left corner positioning */
+          transform: none !important; /* Remove centering */
+          width: auto !important;
+          max-width: calc(100% - 4rem) !important;
+          text-align: left !important; /* Left align text */
+          z-index: 10 !important;
+          padding: 0 !important; /* Remove padding */
+        }
+      }
+
+      @media (max-width: 480px) {
+        body.homepage .hero-content {
+          bottom: max(2vh, 20px) !important; /* Lower minimum position */
+          left: 1rem !important; /* Closer to left edge on small screens */
+          width: auto !important;
+          max-width: calc(100% - 2rem) !important;
+        }
+      }
+      
+      .company-name {
+        font-size: clamp(1.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.98);
+        letter-spacing: 1px;
+        margin-bottom: 0.4rem;
+        text-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
+      }
+      
+      .company-tagline {
+        font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.8px;
+        margin-bottom: 0.8rem;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      }
+      
+      .company-copyright {
+        font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 300;
+        margin-bottom: 0.3rem;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-h3h72n45.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-DtQyBqEV.css">
+  </head>
+  <body class="homepage" style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/pages/about" class="nav-link">关于我们</a></li>
+            <li><a href="/pages/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="/pages/startup-guidance" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="/pages/education-consulting" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="/pages/immigration-consulting" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="/pages/ai-solutions" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/pages/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/pages/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <main class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="/background_video2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+          <div class="company-info">
+            <h1 class="company-name">云岫国际</h1>
+            <p class="company-tagline">CLOUDPEAK GLOBAL</p>
+            <p class="company-copyright">© 2025 CloudPeak Group. All Rights Reserved.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Values - CloudPeak Group</title>
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 80px;
+        }
+      }
+      
+      /* Page banner critical styles */
+      .page-banner {
+        height: 40vh;
+        min-height: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0;
+      }
+      
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        min-height: 60vh;
+      }
+      
+      /* Custom styles for the values page */
+      .service-item.colorless {
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        padding: 1.5rem 0;
+      }
+      
+      .service-item.colorless:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      
+      .center-text {
+        text-align: center !important;
+      }
+      
+      .service-item.colorless p {
+        text-align: center !important;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-h3h72n45.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-DtQyBqEV.css">
+  </head>
+  <body style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/pages/about" class="nav-link">关于我们</a></li>
+            <li><a href="/pages/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="/pages/startup-guidance" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="/pages/education-consulting" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="/pages/immigration-consulting" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="/pages/ai-solutions" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/pages/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/pages/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner Section -->
+      <section class="page-banner">
+        <img src="/image1.jpg" alt="Our Values" class="banner-image">
+        <div class="banner-overlay"></div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="page-content">
+        <!-- Page Title -->
+        <section class="content-section">
+          <div class="section-title">
+            <div class="title-box">我们的价值观</div>
+          </div>
+          
+          <div class="intro-text">
+            <p>我们的价值观指导着我们为客户提供的每一项服务，确保您在新西兰的每一步都充满信赖、安心。</p>
+          </div>
+        </section>
+
+        <!-- Values Grid -->
+        <section class="services-grid">
+          <!-- Professional -->
+          <div class="service-item">
+            <h3>专业</h3>
+            <p class="center-text">深度理解政策，商业与文化差异，确保每项建议都有依据</p>
+          </div>
+
+          <!-- Integrity -->
+          <div class="service-item">
+            <h3>诚信</h3>
+            <p class="center-text">不隐瞒风险，不制造虚假期待，走正确的实事求是</p>
+          </div>
+
+          <!-- Empathy -->
+          <div class="service-item">
+            <h3>同理心</h3>
+            <p class="center-text">我们理解客户的焦虑，也明白“换一个国家生活”意味着什么</p>
+          </div>
+
+          <!-- Responsibility -->
+          <div class="service-item">
+            <h3>责任</h3>
+            <p class="center-text">我们不是一次性顾问，而是您的长期合作伙伴</p>
+          </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="content-section">
+          <h2>为什么选择我们</h2>
+          
+          <div class="services-grid">
+            <!-- Experience -->
+            <div class="service-item colorless">
+              <h3>经验丰富</h3>
+              <p>多年新西兰本地服务经验，深度了解当地政策法规和商业环境，为您提供最准确的指导。</p>
+            </div>
+
+            <!-- Comprehensive Service -->
+            <div class="service-item colorless">
+              <h3>全程陪伴</h3>
+              <p>从初步意识到成功规划，我们提供持续的支持和帮助，确保您的每一步都有专业护航。</p>
+            </div>
+
+            <!-- Personalized Service -->
+            <div class="service-item colorless">
+              <h3>个性化服务</h3>
+              <p>每个客户的情况都是独特的，我们为您量身定制专属方案。</p>
+            </div>
+
+            <!-- Success Cases -->
+            <div class="service-item colorless">
+              <h3>成功案例</h3>
+              <p>众多成功案例证明我们的专业能力，客户的成功就是我们最大的成就。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <h2>与我们共创美好未来</h2>
+          <p>认同我们的价值观？期待与我们一起为客户创造价值，实现共同成长和发展。</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Zealand Startup Guidance - CloudPeak Group</title>
+    
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 80px;
+        }
+      }
+      
+      /* Page banner critical styles */
+      .page-banner {
+        height: 40vh;
+        min-height: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0;
+      }
+      
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        min-height: 60vh;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-h3h72n45.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-DtQyBqEV.css">
+  </head>
+  <body style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/pages/about" class="nav-link">关于我们</a></li>
+            <li><a href="/pages/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="/pages/startup-guidance" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="/pages/education-consulting" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="/pages/immigration-consulting" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="/pages/ai-solutions" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/pages/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/pages/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner Section -->
+      <section class="page-banner">
+        <img src="/image1.jpg" alt="New Zealand Startup" class="banner-image">
+        <div class="banner-overlay"></div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="page-content">
+        <!-- Page Title -->
+        <section class="content-section">
+          <div class="section-title">
+            <div class="title-box">新西兰创业指导｜战略 + 管理 + 市场 = 有方向的增长</div>
+          </div>
+          
+          <div class="intro-text">
+            <p>创业不仅是注册一个公司，更是系统性地解决"做什么、怎么做、怎么赢"的问题。我们为创业者提供从企业愿景制定、财务模型、组织管理到市场定位、品牌传播、客户获取的全过程咨询服务。</p>
+          </div>
+          
+          <div class="target-audience">
+            <h3>服务内容包括：</h3>
+            <ul>
+              <li>创业项目咨询与机会识别</li>
+              <li>商业计划书撰写与投资人准备</li>
+              <li>市场营销策略、数字推广</li>
+              <li>团队管理与运营流程优化</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid">
+          <!-- Strategy Planning -->
+          <div class="service-item">
+            <h3>战略规划与商业模式</h3>
+            <p>帮助创业者梳理商业方向，设计有效的商业模式，制定清晰的发展路径和利润模式，确保创业项目具备长期竞争优势。</p>
+          </div>
+
+          <!-- Financial Planning -->
+          <div class="service-item">
+            <h3>财务建模与融资准备</h3>
+            <p>协助建立完善的财务预测模型，准备投资人演示材料，优化融资策略，提高获得投资的成功率。</p>
+          </div>
+
+          <!-- Market Positioning -->
+          <div class="service-item">
+            <h3>市场定位与品牌建设</h3>
+            <p>定义目标客户群体，制定市场进入策略，建立品牌识别系统，设计有效的营销推广方案，快速建立市场影响力。</p>
+          </div>
+
+          <!-- Team Management -->
+          <div class="service-item">
+            <h3>团队组建与运营管理</h3>
+            <p>指导核心团队组建，建立高效的组织架构和工作流程，设计激励机制，打造具备竞争力的创业团队。</p>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <h2>开启您的创业之路</h2>
+          <p>准备在新西兰创业？我们的专业团队将为您提供全程创业指导和支持服务。</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

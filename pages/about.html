@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - CloudPeak Group</title>
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 80px;
+        }
+      }
+      
+      /* Page banner critical styles */
+      .page-banner {
+        height: 40vh;
+        min-height: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0;
+      }
+      
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        min-height: 60vh;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-h3h72n45.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-DtQyBqEV.css">
+  </head>
+  <body style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/pages/about" class="nav-link">关于我们</a></li>
+            <li><a href="/pages/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="/pages/startup-guidance" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="/pages/education-consulting" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="/pages/immigration-consulting" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="/pages/ai-solutions" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/pages/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/pages/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner Section -->
+      <section class="page-banner">
+        <img src="/image1.jpg" alt="Auckland Harbor" class="banner-image">
+        <div class="banner-overlay"></div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="page-content">
+        <!-- About Us Title -->
+        <section class="content-section">
+          <div class="section-title">
+            <div class="title-box">关于我们</div>
+          </div>
+          
+          <div class="intro-text">
+            <p>我们是一家立足新西兰、面向全球的专业咨询公司，致力于为海外客户提供全方位的新西兰商业、教育与移民解决方案。作为连接世界与新西兰的桥梁，我们不仅深耕本地政策与行业趋势，更了解海外客户在投资发展过程中的实际挑战。我们的使命是：让客户以更低的试错成本、更快的适应速度、更稳的路径实现"落地新西兰、扎根成长"。</p>
+          </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid">
+          <!-- Business Consulting -->
+          <div class="service-item">
+            <h3>新西兰商业咨询</h3>
+            <p>我们深耕新西兰本地市场，专注为海外企业提供市场准入、公司设立、法律合规、行业分析等专业服务。通过我们的支持，客户可以深度了解新西兰的商业环境、法律政策与行业机会，加速企业在新西兰的落地与发展。</p>
+          </div>
+
+          <!-- Startup Guidance -->
+          <div class="service-item">
+            <h3>新西兰创业指导</h3>
+            <p>无论您是初创企业还是寻求转型的成熟企业，我们的团队都能为您提供包括战略规划、组织管理、市场营销、品牌建设等全方位的创业咨询服务，助力企业提升核心竞争力，把握新西兰及亚太区域的发展机遇。</p>
+          </div>
+
+          <!-- Education Consulting -->
+          <div class="service-item">
+            <h3>新西兰教育咨询</h3>
+            <p>我们为全球家庭与学生提供覆盖新西兰K12基础教育、本科、硕士、博士学位各个阶段的教育规划与申请服务。我们的团队拥有丰富的教育资源与申请经验，能够为每一位学生量身定制成长路径，实现留学梦想并融入本地社会。</p>
+          </div>
+
+          <!-- Immigration Consulting -->
+          <div class="service-item">
+            <h3>新西兰移民咨询</h3>
+            <p>我们提供从初步评估、签证规划到移民申请的流程化专业指导，帮助客户选择技术移民、投资移民、创业移民、家庭团聚等多种途径，实现移民新西兰、获得永久居留身份的目标。</p>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <h2>赞助品牌</h2>
+          <div class="sponsor-images">
+            <img src="/wine2.jpg" alt="赞助品牌 2" />
+            <img src="/JW_group_logo.jpg" alt="JW Group New Zealand" />
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

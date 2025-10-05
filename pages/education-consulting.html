@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Zealand Education Consulting - CloudPeak Group</title>
+
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 80px;
+        }
+      }
+      
+      /* Page banner critical styles */
+      .page-banner {
+        height: 40vh;
+        min-height: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0;
+      }
+      
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        min-height: 60vh;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-h3h72n45.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-DtQyBqEV.css">
+  </head>
+  <body style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/pages/about" class="nav-link">关于我们</a></li>
+            <li><a href="/pages/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="/pages/startup-guidance" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="/pages/education-consulting" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="/pages/immigration-consulting" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="/pages/ai-solutions" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/pages/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/pages/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner Section -->
+      <section class="page-banner">
+        <img src="/image1.jpg" alt="New Zealand Education" class="banner-image">
+        <div class="banner-overlay"></div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="page-content">
+        <!-- Page Title -->
+        <section class="content-section">
+          <div class="section-title">
+            <div class="title-box">新西兰教育咨询｜从K12到博士，规划孩子未来的每一步</div>
+          </div>
+          
+          <div class="intro-text">
+            <p>我们根据教育趋势和一生的规划，我们提供全方位资、全流程的新西兰留学与学历规划服务，涵盖公立与私立学校、本科与研究生课程，以及海外研究生机会。我们的团队熟悉新西兰名校的教育体系，能根据学生个人、兴趣与目标量身定制升学路径。</p>
+          </div>
+          
+          <div class="target-audience">
+            <h3>特色服务：</h3>
+            <ul>
+              <li>K12转校规划与申请</li>
+              <li>高等教育专业规划与申请指导</li>
+              <li>奖学金与研究机会申请辅导</li>
+              <li>家长陪读与监护人安排建议</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid">
+          <!-- K12 Education -->
+          <div class="service-item">
+            <h3>K12基础教育规划</h3>
+            <p>为学生提供新西兰小学、中学转校规划，包括公立、私立及特殊学校评估，制定个性化的学习计划，确保学生顺利适应新西兰基础教育环境。</p>
+          </div>
+
+          <!-- Higher Education -->
+          <div class="service-item">
+            <h3>高等教育申请指导</h3>
+            <p>协助学生申请新西兰大学本科、硕士、博士课程，提供专业选择建议、申请材料准备、面试辅导等全方位支持服务。</p>
+          </div>
+
+          <!-- Scholarship Support -->
+          <div class="service-item">
+            <h3>奖学金申请支持</h3>
+            <p>指导学生申请各类奖学金和研究机会，包括政府奖学金、学校奖学金、研究项目资助等，减轻留学经济负担。</p>
+          </div>
+
+          <!-- Family Services -->
+          <div class="service-item">
+            <h3>家庭陪读服务</h3>
+            <p>为有陪读需求的家庭提供监护人安排、住宿选择、生活适应等全面指导，确保学生和家长都能顺利融入新西兰生活。</p>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <h2>开启您的新西兰教育之旅</h2>
+          <p>准备来新西兰学习？我们的专业教育咨询团队将为您提供最适合的教育规划和申请支持。</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Zealand Business Consulting - CloudPeak Group</title>
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 80px;
+        }
+      }
+      
+      /* Page banner critical styles */
+      .page-banner {
+        height: 40vh;
+        min-height: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0;
+      }
+      
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        min-height: 60vh;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-h3h72n45.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-DtQyBqEV.css">
+  </head>
+  <body style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/pages/about" class="nav-link">关于我们</a></li>
+            <li><a href="/pages/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="/pages/startup-guidance" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="/pages/education-consulting" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="/pages/immigration-consulting" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="/pages/ai-solutions" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/pages/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/pages/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner Section -->
+      <section class="page-banner">
+        <img src="/image1.jpg" alt="New Zealand Business" class="banner-image">
+        <div class="banner-overlay"></div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="page-content">
+        <!-- Page Title -->
+        <section class="content-section">
+          <div class="section-title">
+            <div class="title-box">新西兰商业咨询｜了解环境，落地企业，赢在起点</div>
+          </div>
+          
+          <div class="intro-text">
+            <p>我们为海外企业提供专业的新西兰市场准入服务，包括公司注册、商业模式优化、政策法规解读、行业趋势分析、本地合作伙伴等。通过我们的咨询与资源整合，客户可以更清晰地判断商业机会，规避风险，加速决策与执行。</p>
+          </div>
+          
+          <div class="target-audience">
+            <h3>适合人群：</h3>
+            <ul>
+              <li>正在考虑在新西兰设立分公司或子公司的海外企业</li>
+              <li>有意向进入新西兰市场的创业者与投资者</li>
+              <li>希望寻找本地合作伙伴或渠道的品牌方</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid">
+          <!-- Company Registration -->
+          <div class="service-item">
+            <h3>公司注册与设立</h3>
+            <p>提供新西兰公司注册的全流程服务，包括公司类型选择、名称审核、文件准备、银行开户、商标申请的企业快速合规地在新西兰设立。</p>
+          </div>
+
+          <!-- Market Analysis -->
+          <div class="service-item">
+            <h3>市场分析与机会评估</h3>
+            <p>深入分析新西兰市场环境、竞争格局、消费者行为和就业趋势，为您的商业决策提供准确的数据支撑和战略建议。</p>
+          </div>
+
+          <!-- Legal Compliance -->
+          <div class="service-item">
+            <h3>法规合规指导</h3>
+            <p>协助企业了解并遵守新西兰的商业法规、税务要求、劳动法规等，确保合规运营，降低企业法律风险。</p>
+          </div>
+
+          <!-- Partnership -->
+          <div class="service-item">
+            <h3>本地合作伙伴对接</h3>
+            <p>利用我们的本地网络资源，为您匹配适合的供应商、分销商、投资者或战略合作伙伴，加速业务拓展。</p>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <h2>开启您的新西兰商业之旅</h2>
+          <p>准备在新西兰发展业务？我们的专业商业咨询团队将为您提供全方位的支持和指导。</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

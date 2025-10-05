@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-tile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Zealand Immigration Consulting - CloudPeak Group</title>
+    <!-- Comprehensive FOUC prevention -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Navigation critical styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: transparent;
+      }
+      
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      @media (min-width: 769px) {
+        .logo-img {
+          height: 80px;
+        }
+      }
+      
+      /* Page banner critical styles */
+      .page-banner {
+        height: 40vh;
+        min-height: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0;
+      }
+      
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        min-height: 60vh;
+      }
+      
+      /* Process section styles */
+      .process-section {
+        margin: 4rem 0;
+        text-align: center;
+      }
+      
+      .process-section h2 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        color: #333;
+        font-weight: 600;
+      }
+      
+      .process-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      .process-step {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .step-number {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+      }
+      
+      .process-step h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.75rem;
+      }
+      
+      .process-step p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+      }
+      
+      /* Mobile responsive design */
+      @media (max-width: 768px) {
+        .process-grid {
+          flex-direction: column;
+          align-items: center;
+          gap: 3rem;
+        }
+        
+        .process-step {
+          max-width: 300px;
+        }
+        
+        .step-number {
+          width: 70px;
+          height: 70px;
+          font-size: 1.75rem;
+        }
+        
+        .process-section h2 {
+          font-size: 1.75rem;
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-h3h72n45.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/vendor-DtQyBqEV.css">
+  </head>
+  <body style="visibility: hidden;">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <button class="logo-btn" id="logo-btn" aria-label="Go to home">
+          <img src="/logo.png" alt="CloudPeak Group" class="logo-img">
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+
+      <!-- Navigation Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-menu">
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li><a href="/pages/about" class="nav-link">关于我们</a></li>
+            <li><a href="/pages/business-consulting" class="nav-link">新西兰商业咨询</a></li>
+            <li><a href="/pages/startup-guidance" class="nav-link">新西兰创业指导</a></li>
+            <li><a href="/pages/education-consulting" class="nav-link">新西兰教育咨询</a></li>
+            <li><a href="/pages/immigration-consulting" class="nav-link">新西兰移民咨询</a></li>
+            <li><a href="/pages/ai-solutions" class="nav-link">企业级AI解决方案</a></li>
+            <li><a href="/pages/our-values" class="nav-link">我们的价值观</a></li>
+            <li><a href="/pages/contact" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner Section -->
+      <section class="page-banner">
+        <img src="/image1.jpg" alt="New Zealand Immigration" class="banner-image">
+        <div class="banner-overlay"></div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="page-content">
+        <!-- Page Title -->
+        <section class="content-section">
+          <div class="section-title">
+            <div class="title-box">新西兰移民咨询｜移民政策清晰，移居过程安心</div>
+          </div>
+          
+          <div class="intro-text">
+            <p>作为持牌移民顾问团队（Licensed Immigration Advisers），我们为客户提供合法、专业、严谨的新西兰移民服务，无论是技术移民、投资移民、雇主担保还是家庭团聚，我们都能根据客户背景量身定制优化解决方案，并协助准备所有必要的文件与辅导材料，提升申请成功率。</p>
+          </div>
+          
+          <div class="target-audience">
+            <h3>我们承诺：</h3>
+            <ul>
+              <li>所有建议遵守新西兰移民（INZ）官方政策</li>
+              <li>拒绝虚假宣传与不实承诺</li>
+              <li>注重长期服务与客户整体利益</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid">
+          <!-- Skilled Migration -->
+          <div class="service-item">
+            <h3>技术移民</h3>
+            <p>为具备专业技能的申请人提供技术移民评估、申请策略制定、职业评估指导服务，帮助符合条件的申请人成功获得技术移民资格新西兰全家居留权。</p>
+          </div>
+
+          <!-- Investment Migration -->
+          <div class="service-item">
+            <h3>投资移民</h3>
+            <p>为高净值客户提供投资移民方案设计，包括投资项目选择、资金来源证明、商业计划制定等，确保投资移民申请的合规性和成功率。</p>
+          </div>
+
+          <!-- Employer Sponsored -->
+          <div class="service-item">
+            <h3>雇主担保移民</h3>
+            <p>协助申请人寻找合适的新西兰雇主，准备工作签证和雇主担保材料，提供雇主担保移民的全流程指导服务。</p>
+          </div>
+
+          <!-- Family Reunion -->
+          <div class="service-item">
+            <h3>家庭团聚移民</h3>
+            <p>为已获得新西兰居留权或公民身份的申请人提供配偶、子女、父母等亲属的团聚移民服务，让家庭成员在新西兰全家团圆。</p>
+          </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+          <h2>我们的服务流程</h2>
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>初步评估</h3>
+              <p>免费评估移民资格与可行性</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>方案制定</h3>
+              <p>定制个性化移民路径</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>材料准备</h3>
+              <p>协助准备所有申请文件</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>申请跟进</h3>
+              <p>全程跟踪申请进度</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <h2>开启您的新西兰移民之路</h2>
+          <p>准备移民新西兰？我们的持牌移民顾问团队将为您提供专业、合法的移民咨询服务，助您成功实现移民梦想。</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
